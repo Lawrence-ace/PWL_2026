@@ -17,7 +17,7 @@ class Transaction extends Model
     ];
 
     public function transactionDetails(){
-        return $this->hasMany(transactionDetail::class, 'transaction_id', 'id');
+        return $this->hasMany(TransactionDetail::class, 'transaction_id', 'id');
     }
 
     public function Supplier() {
