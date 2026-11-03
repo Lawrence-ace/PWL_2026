@@ -15,7 +15,7 @@
             <div class="card-header-custom d-flex align-items-center justify-content-between">
                 <div>
                     <h5 class="mb-1 fw-bold text-dark d-flex align-items-center gap-2">
-                        <i class="bi bi-pencil-square text-teal"></i>
+                        <i class="bi bi-pencil-square text-maroon"></i>
                         Edit Data Produk
                     </h5>
                     <p class="text-muted small mb-0">Perbarui informasi detail produk #{{ $product->id }} ({{ $product->product_name }}).</p>
@@ -136,7 +136,7 @@
                         <a href="{{ route('product.index') }}" class="btn btn-outline-secondary px-4">
                             <i class="bi bi-x-circle me-1"></i> Batal
                         </a>
-                        <button type="submit" class="btn btn-teal px-4">
+                        <button type="submit" class="btn btn-maroon px-4">
                             <i class="bi bi-check2-circle me-1"></i> Perbarui Produk
                         </button>
                     </div>

@@ -19,11 +19,11 @@
     <style>
         :root {
             --bs-font-sans-serif: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-            --teal-primary: #0d9488;
-            --teal-dark: #0f766e;
-            --teal-light: #f0fdfa;
-            --teal-border: #99f6e4;
-            --primary-gradient: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+            --maroon-primary: #9f1d35;
+            --maroon-dark: #7a1428;
+            --maroon-light: #fdf2f4;
+            --maroon-border: #f0c0c9;
+            --primary-gradient: linear-gradient(135deg, #9f1d35 0%, #7a1428 100%);
         }
 
         body {
@@ -35,12 +35,33 @@
             flex-direction: column;
         }
 
-        /* Navbar Styling */
-        .navbar-custom {
+        /* Sidebar Styling */
+        .app-shell {
+            display: flex;
+            flex: 1;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            --bs-offcanvas-width: 260px;
             background-color: #ffffff;
-            border-bottom: 2px solid #e2e8f0;
-            padding: 0.75rem 0;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+            border-right: 1px solid #e2e8f0;
+            box-shadow: 1px 0 3px rgba(0, 0, 0, 0.03);
+        }
+
+        @media (min-width: 992px) {
+            .sidebar {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                width: 260px;
+                flex: 0 0 260px;
+            }
+        }
+
+        .sidebar-brand-wrap {
+            padding: 1.1rem 1.25rem;
+            border-bottom: 1px solid #f1f5f9;
         }
 
         .navbar-brand {
@@ -48,6 +69,8 @@
             font-size: 1.2rem;
             color: #0f172a !important;
             letter-spacing: -0.02em;
+            margin: 0;
+            padding: 0;
         }
 
         .navbar-brand-icon {
@@ -61,27 +84,67 @@
             color: #ffffff;
             margin-right: 0.6rem;
             font-size: 1.05rem;
-            box-shadow: 0 3px 8px rgba(13, 148, 136, 0.25);
+            box-shadow: 0 3px 8px rgba(159, 29, 53, 0.25);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            margin: 0;
+            padding: 1rem 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .sidebar-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            padding: 0 0.75rem;
+            margin: 0.5rem 0 0.25rem;
         }
 
         .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
             font-weight: 500;
             color: #64748b;
-            padding: 0.5rem 1rem !important;
+            padding: 0.65rem 0.85rem !important;
             border-radius: 8px;
+            border: 1px solid transparent;
             transition: all 0.2s ease;
         }
 
+        .nav-link i {
+            font-size: 1.05rem;
+        }
+
         .nav-link:hover {
-            color: var(--teal-primary);
-            background-color: var(--teal-light);
+            color: var(--maroon-primary);
+            background-color: var(--maroon-light);
         }
 
         .nav-link.active {
-            color: var(--teal-dark) !important;
-            background-color: var(--teal-light);
-            border: 1px solid var(--teal-border);
+            color: var(--maroon-dark) !important;
+            background-color: var(--maroon-light);
+            border: 1px solid var(--maroon-border);
             font-weight: 600;
+        }
+
+        .mobile-topbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0.6rem 0;
+        }
+
+        .content-area {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         .main-content {
@@ -100,7 +163,7 @@
         .card-header-custom {
             background: #ffffff;
             border-bottom: 1px solid #f1f5f9;
-            border-left: 4px solid var(--teal-primary);
+            border-left: 4px solid var(--maroon-primary);
             padding: 1.1rem 1.35rem;
             border-top-left-radius: 12px;
             border-top-right-radius: 12px;
@@ -125,7 +188,7 @@
         }
 
         /* Teal Buttons */
-        .btn-teal {
+        .btn-maroon {
             background: var(--primary-gradient);
             color: #ffffff !important;
             border: none;
@@ -135,32 +198,32 @@
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
-            box-shadow: 0 2px 6px rgba(13, 148, 136, 0.25);
+            box-shadow: 0 2px 6px rgba(159, 29, 53, 0.25);
             transition: all 0.2s ease;
         }
 
-        .btn-teal:hover {
-            background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+        .btn-maroon:hover {
+            background: linear-gradient(135deg, #7a1428 0%, #5c0e1d 100%);
             transform: translateY(-1px);
-            box-shadow: 0 4px 10px rgba(13, 148, 136, 0.35);
+            box-shadow: 0 4px 10px rgba(159, 29, 53, 0.35);
         }
 
-        .btn-outline-teal {
-            color: var(--teal-primary);
-            border: 1px solid var(--teal-primary);
+        .btn-outline-maroon {
+            color: var(--maroon-primary);
+            border: 1px solid var(--maroon-primary);
             background: transparent;
             font-weight: 500;
             border-radius: 8px;
             transition: all 0.2s ease;
         }
 
-        .btn-outline-teal:hover {
-            background-color: var(--teal-primary);
+        .btn-outline-maroon:hover {
+            background-color: var(--maroon-primary);
             color: #ffffff;
         }
 
-        .text-teal {
-            color: var(--teal-primary) !important;
+        .text-maroon {
+            color: var(--maroon-primary) !important;
         }
 
         /* Table Styling */
@@ -196,18 +259,18 @@
         .badge-barcode {
             font-family: ui-monospace, SFMono-Regular, monospace;
             background-color: #f8fafc;
-            color: #0f766e;
+            color: #7a1428;
             padding: 0.35rem 0.65rem;
             border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
-            border: 1px solid var(--teal-border);
+            border: 1px solid var(--maroon-border);
         }
 
         .badge-supplier {
-            background-color: var(--teal-light);
-            color: var(--teal-dark);
-            border: 1px solid var(--teal-border);
+            background-color: var(--maroon-light);
+            color: var(--maroon-dark);
+            border: 1px solid var(--maroon-border);
             padding: 0.3rem 0.65rem;
             border-radius: 6px;
             font-weight: 500;
@@ -231,8 +294,8 @@
         }
 
         .form-control:focus, .form-select:focus {
-            border-color: var(--teal-primary);
-            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+            border-color: var(--maroon-primary);
+            box-shadow: 0 0 0 3px rgba(159, 29, 53, 0.15);
         }
 
         .input-group-text {
@@ -257,38 +320,47 @@
     @stack('styles')
 </head>
 <body>
-    <!-- Top Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{{ route('product.index') }}">
-                <span class="navbar-brand-icon">
-                    <i class="bi bi-grid-fill"></i>
-                </span>
-                <span>PWL Inventaris</span>
-            </a>
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi bi-list fs-2 text-dark"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('product.*') ? 'active' : '' }}" href="{{ route('product.index') }}">
-                            <i class="bi bi-box-seam me-1"></i> Data Produk
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('supplier.*') ? 'active' : '' }}" href="{{ route('supplier.index') }}">
-                            <i class="bi bi-truck me-1"></i> Data Supplier
-                        </a>
-                    </li>
-                </ul>
+    <div class="app-shell">
+        <!-- Sidebar -->
+        <aside class="sidebar offcanvas-lg offcanvas-start" tabindex="-1" id="sidebarMenu" aria-label="Menu navigasi">
+            <div class="sidebar-brand-wrap d-flex align-items-center justify-content-between">
+                <a class="navbar-brand d-flex align-items-center text-decoration-none" href="{{ route('product.index') }}">
+                    <span class="navbar-brand-icon">
+                        <i class="bi bi-grid-fill"></i>
+                    </span>
+                    <span>PWL Inventaris</span>
+                </a>
+                <button type="button" class="btn-close d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Tutup"></button>
             </div>
-        </div>
-    </nav>
+            <ul class="sidebar-menu">
+                <li class="sidebar-label">Menu</li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('product.*') ? 'active' : '' }}" href="{{ route('product.index') }}">
+                        <i class="bi bi-box-seam"></i> Data Produk
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('supplier.*') ? 'active' : '' }}" href="{{ route('supplier.index') }}">
+                        <i class="bi bi-truck"></i> Data Supplier
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="content-area">
+            <!-- Mobile top bar (hanya tampil di layar kecil) -->
+            <div class="mobile-topbar d-lg-none">
+                <div class="container-xl d-flex align-items-center gap-2">
+                    <button class="btn border-0 shadow-none p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-label="Buka menu">
+                        <i class="bi bi-list fs-2 text-dark"></i>
+                    </button>
+                    <span class="fw-bold">PWL Inventaris</span>
+                </div>
+            </div>
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container">
+        <div class="container-xl">
             <!-- Flash Message Alerts -->
             @if(session('success'))
                 <div class="alert alert-success alert-dismissible fade show d-flex align-items-center shadow-sm rounded-3 border-0 mb-4" role="alert">
@@ -327,10 +399,12 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container text-center">
+        <div class="container-xl text-center">
             <span>&copy; {{ date('Y') }} PWL Inventaris • Praktikum Pemrograman Web Lanjut</span>
         </div>
     </footer>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     @stack('scripts')

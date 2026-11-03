@@ -2,12 +2,9 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
-use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return Product::with('Supplier')->get();
-});
+Route::get('/', [ProductController::class, 'index']);
 
 Route::get('products', [ProductController::class, 'index'])->name('product.index');
 Route::get('product-create', [ProductController::class, 'create'])->name('product.create');

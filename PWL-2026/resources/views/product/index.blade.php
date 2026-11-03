@@ -6,13 +6,13 @@
 <div class="page-header d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
     <div>
         <h1 class="page-title d-flex align-items-center gap-2">
-            <i class="bi bi-box-seam text-teal"></i>
+            <i class="bi bi-box-seam text-maroon"></i>
             Daftar Produk
         </h1>
         <p class="page-subtitle">Kelola dan pantau seluruh data inventaris produk serta informasi harga.</p>
     </div>
     <div class="d-flex align-items-center gap-2">
-        <a href="{{ route('product.create') }}" class="btn btn-teal rounded-pill px-3">
+        <a href="{{ route('product.create') }}" class="btn btn-maroon rounded-pill px-3">
             <i class="bi bi-plus-circle"></i> Tambah Produk
         </a>
     </div>
@@ -75,7 +75,7 @@
                         </td>
                         <td class="text-center">
                             <div class="d-inline-flex gap-1">
-                                <a href="{{ route('product.edit', $get->id) }}" class="btn btn-sm btn-outline-teal px-2 py-1" title="Edit">
+                                <a href="{{ route('product.edit', $get->id) }}" class="btn btn-sm btn-outline-maroon px-2 py-1" title="Edit">
                                     <i class="bi bi-pencil-square me-1"></i>Edit
                                 </a>
                                 <form action="{{ route('product.destroy', $get->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk {{ $get->product_name }}?');" class="d-inline">
@@ -97,7 +97,7 @@
                                 </div>
                                 <h6 class="fw-bold text-dark">Belum ada produk terdaftar</h6>
                                 <p class="text-muted small mb-3">Mulai tambahkan produk baru ke dalam sistem inventaris Anda.</p>
-                                <a href="{{ route('product.create') }}" class="btn btn-sm btn-teal">
+                                <a href="{{ route('product.create') }}" class="btn btn-sm btn-maroon">
                                     <i class="bi bi-plus-lg"></i> Tambah Produk Pertama
                                 </a>
                             </div>

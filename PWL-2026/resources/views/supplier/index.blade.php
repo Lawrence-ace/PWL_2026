@@ -6,13 +6,13 @@
 <div class="page-header d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
     <div>
         <h1 class="page-title d-flex align-items-center gap-2">
-            <i class="bi bi-truck text-teal"></i>
+            <i class="bi bi-truck text-maroon"></i>
             Daftar Supplier
         </h1>
         <p class="page-subtitle">Kelola informasi mitra pemasok dan data kontak untuk kebutuhan pengadaan.</p>
     </div>
     <div class="d-flex align-items-center gap-2">
-        <a href="{{ route('supplier.create') }}" class="btn btn-teal rounded-pill px-3">
+        <a href="{{ route('supplier.create') }}" class="btn btn-maroon rounded-pill px-3">
             <i class="bi bi-plus-circle"></i> Tambah Supplier
         </a>
     </div>
@@ -47,7 +47,7 @@
                         <td class="text-center fw-semibold text-muted">{{ $loop->iteration }}</td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 38px; height: 38px; background-color: var(--teal-light); color: var(--teal-dark); border: 1px solid var(--teal-border);">
+                                <div class="rounded-circle d-flex align-items-center justify-content-center me-3 flex-shrink-0" style="width: 38px; height: 38px; background-color: var(--maroon-light); color: var(--maroon-dark); border: 1px solid var(--maroon-border);">
                                     <i class="bi bi-building"></i>
                                 </div>
                                 <span class="fw-bold text-dark">
@@ -58,7 +58,7 @@
                         <td>
                             @if($supplier->phone)
                                 <a href="tel:{{ $supplier->phone }}" class="text-decoration-none text-dark d-inline-flex align-items-center gap-1 fw-medium">
-                                    <i class="bi bi-telephone text-teal"></i>
+                                    <i class="bi bi-telephone text-maroon"></i>
                                     {{ $supplier->phone }}
                                 </a>
                             @else
@@ -68,7 +68,7 @@
                         <td>
                             @if($supplier->email)
                                 <a href="mailto:{{ $supplier->email }}" class="text-decoration-none text-dark d-inline-flex align-items-center gap-1">
-                                    <i class="bi bi-envelope text-teal"></i>
+                                    <i class="bi bi-envelope text-maroon"></i>
                                     {{ $supplier->email }}
                                 </a>
                             @else
@@ -81,7 +81,7 @@
                         </td>
                         <td class="text-center">
                             <div class="d-inline-flex gap-1">
-                                <a href="{{ route('supplier.edit', $supplier->id) }}" class="btn btn-sm btn-outline-teal px-2 py-1" title="Edit">
+                                <a href="{{ route('supplier.edit', $supplier->id) }}" class="btn btn-sm btn-outline-maroon px-2 py-1" title="Edit">
                                     <i class="bi bi-pencil-square me-1"></i>Edit
                                 </a>
                                 <form action="{{ route('supplier.destroy', $supplier->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus supplier {{ $supplier->supplier_name }}?');" class="d-inline">
@@ -103,7 +103,7 @@
                                 </div>
                                 <h6 class="fw-bold text-dark">Belum ada supplier terdaftar</h6>
                                 <p class="text-muted small mb-3">Tambahkan supplier pertama untuk mulai menghubungkannya dengan produk.</p>
-                                <a href="{{ route('supplier.create') }}" class="btn btn-sm btn-teal">
+                                <a href="{{ route('supplier.create') }}" class="btn btn-sm btn-maroon">
                                     <i class="bi bi-plus-lg"></i> Tambah Supplier Pertama
                                 </a>
                             </div>
